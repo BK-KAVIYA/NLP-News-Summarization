@@ -45,7 +45,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## License
 This project is licensed under the MIT License.
-* `kavinda.me`: Replace with your actual domain name.
-* `https://github.com/BK-KAVIYA/article-analyzer.git`
+* `kavinda.me`
+* `https://github.com/BK-KAVIYA/NLP-News-Summerization.git`
 
  
