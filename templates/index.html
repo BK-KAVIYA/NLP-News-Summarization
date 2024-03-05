@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Analyzer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS (optional for some features) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+        .form-control {
+            border-color: #007bff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">News Article Analyzer</h1>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="url" placeholder="Enter article URL">
+        </div>
+        <button class="btn btn-primary mb-3" id="analyze">Analyze</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#analyze').click(function(){
+                var url = $('#url').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/analyze',
+                    data: {'url': url},
+                    success: function(data){
+                        $('#result').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
